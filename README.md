@@ -28,3 +28,11 @@ URL: http://localhost:9001
 |---|---|---|
 | tokenReceived | Notifies the server that an authentication token is being sent. | Base64 authentication token |
 | move | Requests a player move to the server. | Direction as string: "up", "down", "right", "left" |
+
+# Authentication
+
+The authentication systems has 3 steps to verify a user.
+
+1. *REST API Login*: First the a request to the authentication API must be issued, containing the nickname of the player to authenticate. The service will return the web socket that the player needs to connecto and an authentication token.
+2. *Web Socket Connection*: After successfuly getting a auth token, the user must connect to the provided web socket URL (HTTP Server), and listen for the __askToken__ event which indicates that the server is ready to receive the auth token.
+3. *Web Socket Auth*: After receiving the __askToken__ event the user must send a __tokenReceived__ event to the server with the auth token as the first argument, this will authenticate the user and will add it to the server gameboard.  
