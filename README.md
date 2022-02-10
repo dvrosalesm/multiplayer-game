@@ -14,10 +14,17 @@
 
 URL: http://localhost:9001
 
-Server to client events
+## Server to client events
 
 | Event | Description | Returns |
 |---|---|---|
 | askToken | Request for authentication token in base64. | |
 | invalidToken | Indicates that the given token was invalid. A disconnection is issued after this event. | |
 | updateBoard | Notifies that the game board has changed. | A JSON array of the gameboard with nicknames |
+
+## Client to server events
+
+| Event | Description | Message |
+|---|---|---|
+| tokenReceived | Notifies the server that an authentication token is being sent. | Base64 authentication token |
+| move | Requests a player move to the server. | Direction as string: "up", "down", "right", "left" |
