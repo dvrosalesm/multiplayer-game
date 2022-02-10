@@ -8,4 +8,16 @@
 
 | Endpoint | Description | Parameters|Returns|
 |---|---|---|---|
-|http://localhost:3000/login|Authentication endpoint|__nickname__  *(required)* Specifies the player's nickname.|status: Status of the request. 200 for ok, other for invalid. <br /> token: Base64 token to authenticate in the http game server. <br /> webSocket: URL of the http game socket.|
+|http://localhost:9000/login|Authentication endpoint|__nickname__  *(required)* Specifies the player's nickname.|status: Status of the request. 200 for ok, other for invalid. <br /> token: Base64 token to authenticate in the http game server. <br /> webSocket: URL of the http game socket.|
+
+# Web Sockets
+
+URL: http://localhost:9001
+
+Server to client events
+
+| Event | Description | Returns |
+|---|---|---|
+| askToken | Request for authentication token in base64. | |
+| invalidToken | Indicates that the given token was invalid. A disconnection is issued after this event. | |
+| updateBoard | Notifies that the game board has changed. | A JSON array of the gameboard with nicknames |
