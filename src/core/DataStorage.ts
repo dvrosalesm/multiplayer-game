@@ -20,5 +20,8 @@ export const DataStorageHelper = {
   },
   addUser: (user: User): void => {
     MEMORYDB.users.push(user);
+  },
+  removeUser: (user: User): void => {
+    MEMORYDB.users = MEMORYDB.users.filter( cUser => cUser.id !== user.id);
   }
 }

@@ -86,6 +86,7 @@ export class GameServer {
       if(!currentUser) return;
 
       this.board.clearEntity(currentUser.player);
+      DataStorageHelper.removeUser(currentUser);
 
       _logger(`User ${currentUser.id} has left.`)
 
