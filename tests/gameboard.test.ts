@@ -1,5 +1,5 @@
 import { EntityFactory } from '../src/factories';
-import { BOARD_MOVES, Cell, EntityOptions, Gameboard, MOVEMENT_RESULT, Player, PlayerOptions } from '../src/core';
+import { BOARD_MOVES, Gameboard, MOVEMENT_RESULT, Player, PlayerOptions } from '../src/core';
 import { GameboardLogger } from '../src/utils';
 
 let board: Gameboard = null;
